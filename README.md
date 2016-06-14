@@ -13,15 +13,21 @@ Sample Neutron Plugin
 
 ### Objective : Write the very basic neutron plugin (dummy - without any error)
 
-### Steps for setting up :
+### Steps for setting up : 
 
- a.  Neutron plugins are located in  "neutron/plugins" directory. Each plugin is a folder.
- 	 In devstack it is "/opt/stack/neutron/neutron/plugins". By default the few plugins are installed 
- 	  bigswitch  brocade  common  embrane  hyperv  ml2  myplugin  nuage  oneconvergence  opencontrail
- b.  create a directory name for your plugin 
+ * a.  Neutron plugins are located in  "neutron/plugins" directory. Each plugin is a folder. 
+ 
+ 	 In devstack it is "/opt/stack/neutron/neutron/plugins". By default the few plugins are installed   
+ 	  bigswitch  brocade  common  embrane  hyperv  ml2  myplugin  nuage  oneconvergence  opencontrail    
+ 	    
+ 	    
+ * b.  create a directory name for your plugin 
  	 In my exaample "MySimpleNeutronPlugin"
- c.  copy the plugin.py and __init__.py to this folder
- d.	 Modify the /etc/neutron/neutron.conf as below,
+ 	 
+* c.  copy the plugin.py and __init__.py to this folder
+ 
+ *d.  Modify the /etc/neutron/neutron.conf as below,
+ 
  		comment the service_plugins and ml2 core plugin as below
  			#service_plugins = neutron.services.l3_router.l3_router_plugin.L3RouterPlugin
  			#core_plugin = neutron.plugins.ml2.plugin.Ml2Plugin
@@ -31,7 +37,7 @@ Sample Neutron Plugin
  		The plugin syntax is as below,
  			core_plugin = neutron.plugins.<your plugin directory>.<plugin file name>.<plugin class name>
 
- e.  Restart the neutron service 
+ * e.  Restart the neutron service 
  		In devstack, goes to the q-svc screen, press CTRL+C. and uparrow(neutron start command) and enter it.
 
 
